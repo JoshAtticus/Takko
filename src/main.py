@@ -45,7 +45,7 @@ def restart():
     print(f"Running reset script: {script}")
     os.system(script)
 
-    print(f"Octavia {version} going away now...")
+    print(f"Takko {version} going away now...")
     exit()
 
 
@@ -54,7 +54,7 @@ def shutdown():
     print("Shutting down websocket")
     octavia.wss.stop()
 
-    print(f"Octavia {version} going away now...")
+    print(f"Takko {version} going away now...")
     exit()
 
 
@@ -94,53 +94,53 @@ def createResponse(question, response, creator):
 # Commands
 @octavia.command(args=0, aname="help")
 def help(ctx):
-    ctx.send_msg("Just start talking to me, and I'll reply to the best of my ability! \nIf I don't know how to reply to a question, you can use \n@Octavia add (reply) to help me, or use @Octavia cancel to stop. \nYou can learn about me with @Octavia about. \nThere are a few commands I've inherited from MeowyMod, but only MikeDEV can use them.")
+    ctx.send_msg("Just start talking to me, and I'll reply to the best of my ability! \nIf I don't know how to reply to a question, you can use \n@Takko add (reply) to help me, or use @Takko cancel to stop. \nYou can learn about me with @Takko about. \nThere are a few commands I've inherited from MeowyMod, but only JoshAtticus can use them.")
 
 
 # Display info
 @octavia.command(args=0, aname="about")
 def about(ctx):
     ctx.send_msg(
-        f"I'm Octavia v{version}! \n\nI was created by @MikeDEV. I'm based upon MeowyMod. I was built using ShowierData9978's MeowerBot.py library! \n\nYou can find my source code here: https://github.com/MeowerBots/Octavia")
+        f"I'm Takko v{version}! \n\nI was created by @JoshAtticus. I'm based upon MeowyMod. I was built using ShowierData9978's MeowerBot.py library! \n\nYou can find my source code here: https://github.com/JoshAtticus/Takko")
 
 
 # Update check
 @octavia.command(args=0, aname="update")
 def updateCheck(ctx):
-    if ctx.user.username == "MikeDEV":
+    if ctx.user.username == "JoshAtticus":
         # Check for updates, but better(ish)
-        versionHistory = requests.get("https://raw.githubusercontent.com/MeowerBots/Octavia/main/versionInfo.json").json()
+        versionHistory = requests.get("https://raw.githubusercontent.com/JoshAtticus/Takko/main/versionInfo.json").json()
         if version not in versionHistory["latest"] or version in versionHistory["old"]:
             ctx.send_msg(f"Looks like I'm out-of-date! Latest version(s) are {versionHistory['latest']} while I'm on {version}. Downloading updates...")
             time.sleep(1)
-            updater.update(f"{os.getcwd()}/main.py", "https://raw.githubusercontent.com/MeowerBots/Octavia/main/src/main.py")
+            updater.update(f"{os.getcwd()}/main.py", "https://raw.githubusercontent.com/JoshAtticus/Takko/main/src/main.py")
             ctx.send_msg("Rebooting to apply updates...")
             time.sleep(1)
             restart()
         else:
             ctx.send_msg(f"Looks like I'm up-to-date! Running v{version} right now.")
     else:
-        ctx.send_msg(f"You're not MikeDEV. Go away.")
+        ctx.send_msg(f"You're not JoshAtticus. Go away.")
 
 
 # Reboot request
 @octavia.command(args=0, aname="reboot")
 def rebootScript(ctx):
-    if ctx.user.username == "MikeDEV":
+    if ctx.user.username == "JoshAtticus":
         ctx.send_msg("Gimme just a moment...")
         restart()
     else:
-        ctx.send_msg(f"You're not MikeDEV. Go away.")
+        ctx.send_msg(f"You're not JoshAtticus. Go away.")
 
 
 # Shutdown request
 @octavia.command(args=0, aname="shutdown")
 def shutdownScript(ctx):
-    if ctx.user.username == "MikeDEV":
+    if ctx.user.username == "JoshAtticus":
         ctx.send_msg("Back to bed, I suppose...")
         shutdown()
     else:
-        ctx.send_msg(f"You're not MikeDEV. Go away.")
+        ctx.send_msg(f"You're not JoshAtticus. Go away.")
 
 
 # Finish adding new response
@@ -184,7 +184,7 @@ def fullQuestionEventManager(message, bot):
         if origin in newResponses:
             return
         newResponses[origin] = question
-        bot.send_msg(f"@{origin} I don't know how to respond to that question yet, but you can provide me with an answer! Just use @Octavia add (response), or just tell me @Octavia cancel.")
+        bot.send_msg(f"@{origin} I don't know how to respond to that question yet, but you can provide me with an answer! Just use @Takko add (response), or just tell me @Takko cancel.")
 
 
 # Listener management
