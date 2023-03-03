@@ -1,8 +1,8 @@
-# Octavia
-Source code for the not-so-friendly chatbot, "Octavia". A fork of the "MeowyMod" bot, inspired by the [Octavia chat bot on Scratch.](https://scratch.mit.edu/projects/402821371/)
+# Takko
+This is the Takko source code. Takko is based on Octavia, a bot by MikeDEV.
 
 # 💡 Let's chat! 💡
-Simply mention @Octavia in Meower and start chatting! Commands are listed below, or can be accessed by using `@Octavia help`.
+Simply mention @Takko in Meower and start chatting! Commands are listed below, or can be accessed by using `@Takko help`.
 
 # 📦 Dependencies 📦
 * 🐍 Python >=3.11
@@ -12,6 +12,6 @@ Simply mention @Octavia in Meower and start chatting! Commands are listed below,
 * 🌐 CloudLink 3 Client (Component of MeowerBot.py)
 
 # ⌨ Commands ⌨
-* `@Octavia help` - Displays a list of commands.
-* `@Octavia add (response)` - If Octavia says that she doesn't know how to reply, use this command to improve her memory.
-* `@Octavia cancel` - If Octavia says that she doesn't know how to reply, use this command to abort adding a new response.
+* `@Takko help` - Displays a list of commands.
+* `@Takko add (response)` - If Takko says that he doesn't know how to reply, use this command to improve his memory.
+* `@Takko cancel` - If Takko says that he doesn't know how to reply, use this command to abort adding a new response.
